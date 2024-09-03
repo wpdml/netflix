@@ -10,6 +10,21 @@ import { Outlet } from "react-router-dom";
 const AppLayout = () => {
   return (
     <div>
+            <style type="text/css">
+        {`
+          .navbar {
+            background-color: black !important;
+          }
+
+          .home-link, .movies-link{
+            color: white !important;
+          }
+
+          .home-link:hover, .movies-link:hover {
+            color: #ccc !important;
+          }
+        `}
+      </style>
       <Navbar expand="lg" className="navbar">
         <Container fluid>
           <Navbar.Brand href="#"> <img
@@ -18,14 +33,14 @@ const AppLayout = () => {
               height="50"
               className="d-inline-block align-top"
             /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll" />
+          <Navbar.Toggle aria-controls="navbarScroll"/>
           <Navbar.Collapse id="navbarScroll">
             <Nav
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/movies">Link</Nav.Link>
+              <Nav.Link href="/" className="home-link">Home</Nav.Link>
+              <Nav.Link href="/movies" className="movies-link">Link</Nav.Link>
             </Nav>
             <Form className="d-flex">
               <Form.Control
