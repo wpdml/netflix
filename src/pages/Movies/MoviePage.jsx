@@ -6,7 +6,7 @@ import MovieCard from "../../common/MovieCard/MovieCard";
 import ReactPaginate from "react-paginate";
 
 const MoviePage = () => {
-  const [query, setQuery] = useSearchParams();
+  const [query] = useSearchParams();
   const keyword = query.get("q");
   const [page, setPage] = useState(1);
 
