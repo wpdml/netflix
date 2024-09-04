@@ -24,6 +24,9 @@ const MoviePage = () => {
   if (isError) {
     return <Alert variant="danger">{error.message}</Alert>;
   }
+  if (data?.results?.length === 0) {
+    return <h1>No Results Found</h1>;
+  }
   return (
     <Container>
       <Row>
