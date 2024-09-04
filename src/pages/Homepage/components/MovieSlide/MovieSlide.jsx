@@ -8,11 +8,14 @@ import { responsive } from "../../../../constant/responsive";
 const MovieSlide = () => {
   const { data, isLoading, isError, error } = usePopularMoviesQuery();
 
+  console.log("popular Data:", data);
+
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (isError) {
-    return <Alert varient="danger">{error.message}</Alert>;
+    return <Alert variant="danger">{error.message}</Alert>;
   }
   return (
     <div>
