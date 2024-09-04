@@ -1,9 +1,9 @@
 import React from "react";
-import "./MovieSlider.style.css";
-import { Carousel } from "react-bootstrap";
+import Carousel from "react-multi-carousel";
 import MovieCard from "../MovieCard/MovieCard";
+import "./MovieSlider.style.css";
 
-const MovieSlider = ({ title, movies,responsive }) => {
+const MovieSlider = ({title,movies,responsive}) => {
   return (
     <div>
       <h3>{title}</h3>
