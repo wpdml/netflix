@@ -1,0 +1,49 @@
+/* Trailer.style.css */
+.trailer-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999; /* Ensure it's above other content */
+}
+
+.trailer-container {
+  position: relative;
+  width: 80%;
+  max-width: 800px;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+}
+
+.trailer-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.close-button {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  background: #000000;
+  color: rgb(255, 255, 255);
+  border: none;
+  width: 25px;
+  border: solid, 1px, rgb(255, 255, 255);
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  z-index: 10000; 
+  transition: background-color 0.6s ease; 
+}
+
+.close-button:hover {
+    background: red; 
+    color: white; 
+  }

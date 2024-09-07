@@ -1,0 +1,36 @@
+.pagination {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.page-item {
+  background-color: rgb(224, 27, 47);
+  margin: 0 5px;
+  border-radius: 5px;
+}
+
+.page-link {
+  color: rgb(255, 255, 255);
+  padding: 10px 15px;
+  border: none;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+.page-item:hover .page-link {
+    border-radius: 5px;
+    background-color: rgb(243, 70, 87);
+    color: rgb(88, 1, 1);
+}
+
+.active .page-link {
+  background-color: rgb(255, 255, 255);
+  border: solid rgb(255, 255, 255) 1px;
+  color: rgb(224, 19, 19);
+  border-radius: 5px;
+}
+
+.page-link:focus {
+  outline: none;
+}

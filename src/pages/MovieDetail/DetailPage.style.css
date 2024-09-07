@@ -1,0 +1,75 @@
+.img {
+  position: relative;
+  width: 100%;
+  max-height: 80vh; /* Optional: to limit the height */
+  overflow: hidden;
+}
+
+.movie-img {
+  width: 100%; /* Fit the screen width */
+  height: auto; /* Maintain aspect ratio */
+}
+
+.gradient-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 30%; /* Adjust the height of the gradient as needed */
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
+  z-index: 1; /* Ensure the overlay is on top */
+  pointer-events: none;
+}
+
+.detail-info-box {
+  position: absolute;
+  bottom: 10px;
+  left: 20px;
+  z-index: 2; /* Make sure the text appears above the gradient */
+  color: white;
+}
+
+.detail-title {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.detail-genre {
+  margin-top: 10px;
+}
+
+.badge {
+  background-color: red;
+  color: white;
+}
+.detail-container {
+  position: relative;
+  padding: 20px;
+}
+
+.img {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.detail-info-box {
+  margin-bottom: 40px;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.review-section {
+  margin-top: 40px;
+  padding: 20px;
+  background-color: #000000;
+  border: solid,1px, rgb(229, 45, 69);
+  border-radius: 8px;
+}
+
+.review-title {
+  margin-bottom: 15px;
+  font-size: 24px;
+  font-weight: bold;
+}
