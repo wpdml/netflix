@@ -6,11 +6,15 @@ import TopMovieSlide from './components/MovieSlide/TopMovieSlide'
 
 const Homepage = () => {
   return (
-    <div>
-      <Banner/>
+    <div className='home'>
+      <div className='banner-area'>
+      <Banner />
+      </div>
+      <div className='slide-area'>
       <MovieSlide/>
       <UpcomingMovieSlide/>
       <TopMovieSlide/>
+      </div>
     </div>
   )
 }

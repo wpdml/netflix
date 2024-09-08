@@ -1,14 +1,14 @@
 import { useQuery } from "@tanstack/react-query";
 import api from "../utils/api";
 
-const fetchTopMovies=()=>{
-  return api.get(`/movie/top_rated`)
-}
+const fetchTopMovies = () => {
+  return api.get(`/movie/top_rated`);
+};
 
-export const useTopMoviesQuery=()=>{
+export const useTopMoviesQuery = () => {
   return useQuery({
-    queryKey:['movie-top_rated'],
+    queryKey: ["movie-top_rated"],
     queryFn: fetchTopMovies,
-    select:(result)=> result.data,
-  })
-}
+    select: (result) => result.data,
+  });
+};

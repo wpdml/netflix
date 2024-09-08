@@ -1,12 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { useSearchMovieQuery } from "../../hooks/useSearchMovie";
-import { useSearchParams } from "react-router-dom";
-import { Alert, Col, Container, Row } from "react-bootstrap";
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { Alert, Col, Container, Row, Button } from "react-bootstrap";
 import MovieCard from "../../common/MovieCard/MovieCard";
 import ReactPaginate from "react-paginate";
 import Popularity from "./components/Popularity";
 import Genre from "./components/Genre";
 import "./MoviePage.style.css";
+import { ClipLoader } from "react-spinners";
 
 const MoviePage = () => {
   const [query, setQuery] = useSearchParams();
@@ -22,6 +23,8 @@ const MoviePage = () => {
     sortBy,
     genre,
   });
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     setPage(1);
@@ -67,25 +70,47 @@ const MoviePage = () => {
     setPage(1); 
   };
 
-  if (isLoading) {
-    return <h1>Loading...</h1>;
-  }
+  const handleBackToPage = () => {
+    navigate(-1);
+  };
 
+  const [loading]=useState(true)
+
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <ClipLoader
+          color={"#f88c6b"}
+          loading={loading}
+          size={300}
+          aria-label="Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
   if (isError) {
-    return <Alert variant="danger">{error.message}</Alert>;
+    return <Alert variant="warning">{error.message}</Alert>;
   }
 
   if (!filteredMovies || filteredMovies.length === 0) {
-    return <h1>No Results Found</h1>;
+    return (
+      <Container>
+        <h1 className="no-results">No Results Found...</h1>
+        <button onClick={handleBackToPage} className="page-button">
+        ↩ Back to Page
+        </button>
+      </Container>
+    );
   }
 
   return (
     <Container>
-      <Row>
-        <Col lg={4} xs={12}>
+      <div>
+        <div>
           <Genre sortGenre={handleSortByGenre} />
-        </Col>
-        <Col lg={8} xs={12}>
+        </div>
+        <div>
           <Popularity
             options={[
               "popularity.desc",
@@ -97,25 +122,24 @@ const MoviePage = () => {
           />
           <Row>
             {filteredMovies.map((movie, index) => (
-              <Col key={index} lg={4} xs={12}>
+              <Col key={index} lg={3} md={4} sm={6} xs={12} className="mb-4">
                 <MovieCard movie={movie} />
               </Col>
             ))}
           </Row>
           <ReactPaginate
-            nextLabel=">"
+            nextLabel="▶"
             onPageChange={handlePageClick}
-            pageRangeDisplayed={3}
-            marginPagesDisplayed={2}
+            pageRangeDisplayed={5}
+            marginPagesDisplayed={0}
             pageCount={data.total_pages}
-            previousLabel="<"
+            previousLabel="◀"
             pageClassName="page-item"
             pageLinkClassName="page-link"
             previousClassName="page-item"
             previousLinkClassName="page-link"
             nextClassName="page-item"
             nextLinkClassName="page-link"
-            breakLabel="..."
             breakClassName="page-item"
             breakLinkClassName="page-link"
             containerClassName="pagination"
@@ -123,8 +147,8 @@ const MoviePage = () => {
             renderOnZeroPageCount={null}
             forcePage={page - 1}
           />
-        </Col>
-      </Row>
+        </div>
+      </div>
     </Container>
   );
 };

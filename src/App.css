@@ -1,4 +1,18 @@
+@font-face {
+  font-family: "GroovyFont";
+  src: url('./font/groovyFont.otf') format('opentype');
+  font-weight: lighter;
+  font-style: normal;
+}
+
 body {
-  background-color: black !important;
+  font-family: "GroovyFont", sans-serif;
+}
+
+body {
+  background-image: url('./z2.jpg');
+  width:100%;
+  background-size: cover;
+  background-position: center;
   color: white !important;
 }

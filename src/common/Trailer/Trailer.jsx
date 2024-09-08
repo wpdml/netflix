@@ -1,17 +1,32 @@
-import React from "react";
+import React, { useState } from "react";
 import YouTube from "react-youtube";
 import { useMovieTrailerQuery } from "../../hooks/useMovieTrailer";
-import './Trailer.style.css'; // Import the CSS file
+import "./Trailer.style.css"; // Import the CSS file
+import { Alert } from "react-bootstrap";
+import { ClipLoader } from "react-spinners";
 
 const Trailer = ({ movieId, setPlay }) => {
-  const { data, isLoading, isError, error } = useMovieTrailerQuery({ id: movieId });
+  const { data, isLoading, isError, error } = useMovieTrailerQuery({
+    id: movieId,
+  });
+
+  const [loading] = useState(true);
 
   if (isLoading) {
-    return <div>Loading...</div>;
+    return (
+      <div className="loader-container">
+        <ClipLoader
+          color={"#f88c6b"}
+          loading={loading}
+          size={300}
+          aria-label="Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
   }
-
   if (isError) {
-    return <div className="text-xl text-red-600">{error.message}</div>;
+    return <Alert variant="warning">{error.message}</Alert>;
   }
 
   const opts = {
@@ -28,16 +43,19 @@ const Trailer = ({ movieId, setPlay }) => {
 
   return (
     <div className="trailer-overlay" onClick={() => setPlay(false)}>
-      <div className="trailer-container">
+      <div
+        className={`trailer-container ${
+          officials.length === 0 ? "no-trailer" : ""
+        }`}
+      >
         {officials.length > 0 ? (
-          <YouTube
-            videoId={officials[0]?.key}
-            opts={opts}
-          />
+          <YouTube videoId={officials[0]?.key} opts={opts} />
         ) : (
-          <div className="text-center">No Trailer</div>
+          <div className="text-center">No Trailer Available</div>
         )}
-        <button className="close-button" onClick={() => setPlay(false)}>×</button>
+        <button className="close-button" onClick={() => setPlay(false)}>
+          ×
+        </button>
       </div>
     </div>
   );

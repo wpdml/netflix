@@ -1,66 +1,52 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import "bootstrap/dist/css/bootstrap.min.css";
+import { Container, Form, Nav, Navbar } from "react-bootstrap";
 import { Outlet, useNavigate } from "react-router-dom";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "./AppLayout.style.css";
 
 const AppLayout = () => {
-  const[keyword,setKeyword]= useState("")
-  const navigate = useNavigate()
+  const [keyword, setKeyword] = useState("");
+  const navigate = useNavigate();
 
-  const searchByKeyword=(event)=>{
-    event.preventDefault()
-    navigate(`/movies?q=${keyword}`)
-    setKeyword("")
-  }
+  const searchByKeyword = (event) => {
+    event.preventDefault();
+    navigate(`/movies?q=${keyword}`);
+    setKeyword("");
+  };
 
   return (
     <div>
-            <style type="text/css">
-        {`
-          .navbar {
-            background-color: black !important;
-          }
-
-          .home-link, .movies-link{
-            color: white !important;
-          }
-
-          .home-link:hover, .movies-link:hover {
-            color: #ccc !important;
-          }
-        `}
-      </style>
       <Navbar expand="lg" className="navbar">
-        <Container fluid>
-          <Navbar.Brand href="#"> <img
-              src="https://1000logos.net/wp-content/uploads/2017/05/Netflix-symbol.jpg" // Use the logo URL directly
-              alt="Logo"
-              height="50"
-              className="d-inline-block align-top"
-            /></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll"/>
+        <Container fluid className="">
+          <Navbar.Brand href="#">
+          <img
+  src="https://i.pinimg.com/originals/17/7f/3e/177f3e88ecf6187c52e51afeee413c9e.jpg"
+  alt="Logo"
+  height="50"
+  className="d-inline-block align-top"
+  style={{ borderRadius: "10px" }}
+/>
+
+          </Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbarScroll" />
           <Navbar.Collapse id="navbarScroll">
-            <Nav
-              style={{ maxHeight: "100px" }}
-              navbarScroll
-            >
-              <Nav.Link href="/" className="home-link">Home</Nav.Link>
-              <Nav.Link href="/movies" className="movies-link">Movies</Nav.Link>
+            <Nav navbarScroll>
+              <Nav.Link href="/" className="home-link">
+                Home
+              </Nav.Link>
+              <Nav.Link href="/movies" className="movies-link">
+                Movies
+              </Nav.Link>
             </Nav>
             <Form className="d-flex" onSubmit={searchByKeyword}>
               <Form.Control
                 type="search"
-                placeholder="Search"
+                placeholder="Enter..."
                 className="me-2"
-                aria-label="Search"
                 value={keyword}
-                onChange={(event)=> setKeyword(event.target.value)}
+                onChange={(event) => setKeyword(event.target.value)}
               />
-              <Button variant="outline-danger">Search</Button>
+              <button className="button">⋆Search⋆</button>
             </Form>
           </Navbar.Collapse>
         </Container>

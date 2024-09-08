@@ -1,12 +1,20 @@
-.carousel-container{
-    overflow: hidden;
-    height: 440px;
+.carousel-container {
+  overflow: hidden;
+  height: 440px;
+  position: relative;
 }
 
-@media (max-width:480px) {
-    .carousel-container{
-        height: 330px;
-        display: flex;
-        justify-content: space-between;
-    }
+@media (max-width: 480px) {
+  .carousel-container {
+    height: 330px;
+  }
+}
+
+.react-multi-carousel-item {
+  padding: 0 20px;
+}
+
+.react-multi-carousel-item img {
+  max-width: 100%;
+  height: auto;
 }

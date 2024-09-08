@@ -3,6 +3,7 @@ import { useMovieReviewQuery } from '../../../../hooks/useMovieReview'
 import { useParams } from 'react-router-dom';
 import ReviewCard from '../../../../common/ReviewCard/ReviewCard';
 import { Alert, Button } from 'react-bootstrap';
+import { ClipLoader } from 'react-spinners';
 
 const Review = () => {
 
@@ -17,23 +18,35 @@ const Review = () => {
         setShowAll(!showAll);
     };
 
+    const [loading]=useState(true)
+
     if (isLoading) {
+      return (
+        <div className="loader-container">
+          <ClipLoader
+            color={"#f88c6b"}
+            loading={loading}
+            size={300}
+            aria-label="Spinner"
+            data-testid="loader"
+          />
+        </div>
+      );
     }
     if (isError) {
-        <Alert variant='danger'>(error.message)</Alert>
+      return <Alert variant="warning">{error.message}</Alert>;
     }
 
   return (
     <div>
-      <h2 className='Review-title'>Review</h2>
       {data?.results?.length > 0 ? (
         <div className='ReviewCardContainer'>
           {reviewsToShow?.map((review, index) => (
             <ReviewCard key={index} review={review} />
           ))}
-          <Button variant="danger" onClick={handleToggle} className='ReviewContiner-btn'>
-            {showAll ? 'Show Less' : 'See All Reviews'}
-          </Button>
+          <button onClick={handleToggle} className='container-button'>
+            {showAll ? '⋆Show Less⋆' : '⋆See All Reviews⋆'}
+          </button>
         </div>
       ) : (
         <div>No Reviews</div>

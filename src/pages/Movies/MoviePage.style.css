@@ -5,12 +5,13 @@
 }
 
 .page-item {
-  background-color: rgb(224, 27, 47);
   margin: 0 5px;
   border-radius: 5px;
+  background-image: url('../../z8.jpg');
 }
 
 .page-link {
+  font-weight: bold;
   color: rgb(255, 255, 255);
   padding: 10px 15px;
   border: none;
@@ -20,17 +21,105 @@
 
 .page-item:hover .page-link {
     border-radius: 5px;
-    background-color: rgb(243, 70, 87);
-    color: rgb(88, 1, 1);
+    background: linear-gradient(to left, rgb(83, 0, 65), transparent);    
+    color: rgb(135, 255, 225);
+    height: 44px;
 }
 
 .active .page-link {
-  background-color: rgb(255, 255, 255);
-  border: solid rgb(255, 255, 255) 1px;
-  color: rgb(224, 19, 19);
+  background: linear-gradient(to left, rgb(255, 255, 255), transparent);    
+  color: rgb(215, 74, 225);
   border-radius: 5px;
 }
 
 .page-link:focus {
   outline: none;
 }
+
+.genre-container {
+  margin-bottom: 20px;
+  margin-top: 30px;
+}
+
+.genre-label {
+  margin-right: 10px;
+  color: #ff5858;
+  -webkit-text-stroke: #ff1a1a 1px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  font-size: 50px;
+}
+
+.genre-select {
+  padding: 10px;
+  border: 1px dotted #7cc7a9;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #d2ffee;
+  transition: background-color 0.3s;
+  font-family: GroovyFont;
+  color: #64b09c;
+}
+
+.genre-select:hover {
+  background-color: #e7dcec;
+  color: #a178aa;
+  border: 1px dotted #a178aa;
+}
+
+.popularity-container {
+  margin-bottom: 40px;
+}
+
+.popularity-label {
+  margin-right: 10px;
+  color: #ff5858;
+  -webkit-text-stroke: #ff1a1a 1px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  font-size: 50px;
+}
+
+.popularity-select {
+  padding: 10px;
+  border: 1px dotted #7cc7a9;
+  border-radius: 5px;
+  font-size: 20px;
+  background-color: #d2ffee;
+  transition: background-color 0.3s;
+  font-family: GroovyFont;
+  color: #64b09c;
+}
+
+.popularity-select:hover {
+  background-color: #e7dcec;
+  color: #a178aa;
+  border: 1px dotted #a178aa;
+
+}
+
+.no-results{
+  margin-top: 50px;
+  font-family: GroovyFont;
+  font-size: 50px;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.page-button{
+  background-image: url('../../z2.jpg');
+  background-size: cover;
+  border: 1px dotted rgb(255, 255, 255);
+  border-radius: 10px;
+  padding: 10px;
+  font-family: GroovyFont;
+  font-size: 24px;
+  color: #ffe8e8;
+  display: block;
+  margin: 0 auto;
+  transition: 1s ease;
+}
+.page-button:hover{
+  background-image: url('../../z12.jpg');
+}
+

@@ -1,15 +1,28 @@
-import React from "react";
+import React, { useState } from "react";
 import { useMovieGenreQuery } from "../../../hooks/useMovieGenre";
+import { Alert } from "react-bootstrap";
+import { ClipLoader } from "react-spinners";
 
 const Genre = ({ sortGenre, selectedGenre }) => {
   const { data, isLoading, isError, error } = useMovieGenreQuery();
 
-  if (isLoading) {
-    return <div>Loading...</div>; // Add a loading message or spinner
-  }
+  const [loading]=useState(true)
 
+  if (isLoading) {
+    return (
+      <div className="loader-container">
+        <ClipLoader
+          color={"#f88c6b"}
+          loading={loading}
+          size={300}
+          aria-label="Spinner"
+          data-testid="loader"
+        />
+      </div>
+    );
+  }
   if (isError) {
-    return <div className="text-xl text-red-600">{error.message}</div>;
+    return <Alert variant="warning">{error.message}</Alert>;
   }
 
   const handleGenreChange = (event) => {
@@ -17,12 +30,16 @@ const Genre = ({ sortGenre, selectedGenre }) => {
   };
 
   return (
-    <div>
-      <div>Genre:</div>
-      <select className="" name="genre" onChange={handleGenreChange}
+<div className="genre-container">
+      <label htmlFor="genre-select" className="genre-label">Genre: </label>
+      <select
+        id="genre-select"
+        className="genre-select"
+        name="genre"
+        onChange={handleGenreChange}
         value={selectedGenre}
       >
-        <option value="">All Genres</option>
+        <option value="">✴All Genres✴</option>
         {data.map((genre) => (
           <option key={genre.id} value={genre.id}>
             {genre.name}

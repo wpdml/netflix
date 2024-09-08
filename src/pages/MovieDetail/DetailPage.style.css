@@ -1,75 +1,135 @@
+.movie-about {
+  margin: 90px;
+  background-color: rgba(255, 59, 92, 0.4);
+  border-radius: 30px;
+}
+
+.img-info {
+  display: flex;
+  align-items: flex-start;
+  gap: 20px;
+}
+
 .img {
   position: relative;
-  width: 100%;
-  max-height: 80vh; /* Optional: to limit the height */
+  padding: 35px;
+  width: 48%;
   overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .movie-img {
-  width: 100%; /* Fit the screen width */
-  height: auto; /* Maintain aspect ratio */
-}
-
-.gradient-overlay {
-  position: absolute;
-  bottom: 0;
-  left: 0;
   width: 100%;
-  height: 30%; /* Adjust the height of the gradient as needed */
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-  z-index: 1; /* Ensure the overlay is on top */
-  pointer-events: none;
+  height: auto;
+  border-radius: 20px;
 }
 
 .detail-info-box {
-  position: absolute;
-  bottom: 10px;
-  left: 20px;
-  z-index: 2; /* Make sure the text appears above the gradient */
-  color: white;
+  margin-top: 20px;
+  padding: 5px;
+  flex: 1;
+  max-width: calc(100% - 50px);
+  font-size: 20px;
+  font-weight: bolder;
+  margin-right: 20px;
 }
 
 .detail-title {
-  font-size: 2rem;
-  margin: 0;
+  margin-right: 20px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 80px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  color: rgb(203, 143, 209);
+  -webkit-text-stroke: rgb(151, 255, 248) 1px;
 }
 
 .detail-genre {
   margin-top: 10px;
 }
 
-.badge {
-  background-color: red;
-  color: white;
-}
-.detail-container {
-  position: relative;
-  padding: 20px;
-}
-
-.img {
-  position: relative;
-  margin-bottom: 20px;
-}
-
-.detail-info-box {
-  margin-bottom: 40px;
-}
-
-.buttons {
+.detail-overview {
   margin-top: 20px;
+  line-height: 1.5;
+  font-size: 25px;
+  color: rgb(240, 215, 250);
+}
+
+.overview {
+  font-weight: lighter;
+  color: rgb(240, 215, 250);
 }
 
 .review-section {
+  margin: 90px;
   margin-top: 40px;
   padding: 20px;
-  background-color: #000000;
-  border: solid,1px, rgb(229, 45, 69);
-  border-radius: 8px;
+  background-color: rgba(255, 59, 92, 0.4);
+  border-radius: 30px;
 }
 
 .review-title {
+  text-align: center;
+  margin-bottom: 30px;
+  margin-top: 15px;
+  font-size: 70px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  color: rgb(157, 240, 237);
+  -webkit-text-stroke: rgb(240, 173, 240) 1.4px;
+}
+
+.recommendation-section {
+  margin-bottom: 40px;
+}
+
+.recommendation-title {
+  text-align: center;
   margin-bottom: 15px;
-  font-size: 24px;
-  font-weight: bold;
+  margin-top: 15px;
+  font-size: 80px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  color: rgb(255, 84, 84);
+  -webkit-text-stroke: rgb(255, 34, 0)1px;
+}
+
+.play-button {
+  margin-top: 15px;
+  background-image: url(../../z7.jpg);
+  background-size: cover;
+  border: 1px dotted pink;
+  background-color: transparent;
+  border-radius: 20px;
+  margin-bottom: 25px;
+  font-family: GroovyFont;
+  font-size: 27px;
+  padding: 3px;
+  color: white;
+  transition: 0.3s ease;
+}
+
+.play-button:hover {
+  background-image: url(../../z11.jpg);
+}
+
+.container-button {
+  margin-top: 15px;
+  background-image: url(../../z2.jpg);
+  background-size: cover;
+  border: 1px dotted pink;
+  background-color: transparent;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  font-family: GroovyFont;
+  font-size: 22px;
+  padding: 4px;
+  color: white;
+  transition: 0.3s ease;
+  margin-left: 20px;
+}
+
+.container-button:hover {
+  background-image: url(../../z12.jpg);
 }

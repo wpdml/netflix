@@ -1,0 +1,34 @@
+.popular {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 80px;
+    font-family: GroovyFont;
+    font-weight: lighter;
+    color: rgb(166, 223, 183);
+    -webkit-text-stroke: rgb(255, 34, 0) 1px;
+}
+
+.upcoming {
+    text-align: center;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    font-size: 80px;
+    font-family: GroovyFont;
+    font-weight: lighter;
+    color: rgb(166, 223, 183);
+    -webkit-text-stroke: rgb(255, 34, 0) 1px;
+}
+.top {
+  text-align: center;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  font-size: 80px;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  color: rgb(166, 223, 183);
+  -webkit-text-stroke: rgb(255, 34, 0) 1px;
+}
+.top-container {
+  margin-bottom: 40px;
+}

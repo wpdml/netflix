@@ -1,9 +1,7 @@
-import React, { useState } from 'react'
-import "./ReviewCard.style.css"
-import { Button } from 'react-bootstrap';
+import React, { useState } from "react";
+import "./ReviewCard.style.css";
 
-const ReviewCard = ({review}) => {
-
+const ReviewCard = ({ review }) => {
   const [isExpanded, setIsExpanded] = useState(false);
 
   const toggleExpand = () => {
@@ -11,21 +9,31 @@ const ReviewCard = ({review}) => {
   };
 
   const isLongContent = review.content.length > 200;
-  const displayContent = isExpanded ? review.content : `${review.content.slice(0, 200)}...`;
+  const displayContent = isExpanded
+    ? review.content
+    : `${review.content.slice(0, 200)}...`;
 
   return (
-    <div className='reviewCard'>
-      <div className='reviewCard-info'>
-        <h2>{review.author}</h2>
-        <h3>{new Date(review.created_at).toLocaleDateString()}</h3>
+    <div className="reviewCard">
+      <div className="reviewCard-info">
+        <div className="date-author">
+          <h2 className="review-author">{review.author}</h2>
+          <h3 className="little-star">⋆</h3>
+          <h className="review-date">
+            {new Date(review.created_at).toLocaleDateString()}
+          </h>
+        </div>
       </div>
-      <p className='reviewCard-content'>{displayContent}{isLongContent && (
-        <Button variant="outline-danger" onClick={toggleExpand} className="reviewCard-toggle-btn">
-          {isExpanded ? 'Show Less' : 'See All'}
-        </Button>)}
+      <p className="review-content">
+        {displayContent}
+        {isLongContent && (
+          <button onClick={toggleExpand} className="review-button">
+            {isExpanded ? "⋆Show Less⋆" : "⋆See All⋆"}
+          </button>
+        )}
       </p>
     </div>
-  )
-}
+  );
+};
 
-export default ReviewCard
+export default ReviewCard;

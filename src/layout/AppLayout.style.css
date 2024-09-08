@@ -1,0 +1,36 @@
+.home-link,
+.movies-link {
+  color: rgb(255, 78, 51) !important;
+  font-family: GroovyFont;
+  font-size: 40px;
+  margin-right: 40px;
+  margin-left: 20px;
+  font-weight: lighter;
+}
+
+.home-link:hover,
+.movies-link:hover {
+  color: rgb(196, 255, 217) !important;
+}
+
+.d-flex{
+  margin-left: 20px;
+  margin-right: 20px;
+  font-family: GroovyFont;
+}
+
+.button {
+  background-image: url('./../z3.jpg');
+  background-size: cover;
+  border: solid 1px rgb(204, 139, 157);
+  border-radius: 10px;
+  color: #ffffff;
+  font-family: GroovyFont;
+  font-weight: lighter;
+  font-size: 20px;
+  transition:ease 0.5s;
+}
+
+.button:hover{
+  background-image: url('./../z1.jpg');
+}

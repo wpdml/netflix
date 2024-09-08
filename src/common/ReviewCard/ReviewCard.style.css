@@ -1,4 +1,43 @@
-.reviewCard{
-    font-size: 15px;
+.reviewCard {
+  font-size: 20px;
+  margin: 30px;
+  color: rgb(240, 215, 250);
+}
+.review-author {
+  font-family: GroovyFont;
+  font-size: 50px;
+  color: rgb(255, 255, 255);
+}
+.review-date {
+  margin-top: 20px;
+  margin-left: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+.date-author {
+  display: flex;
+}
+.little-star {
+  font-size: 50px;
+  margin-left: 20px;
+  color: rgb(187, 239, 223);
+}
+.review-button {
+  margin-top: 15px;
+  background-image: url(../../z7.jpg);
+  background-size: cover;
+  border: 1px dotted pink;
+  background-color: transparent;
+  border-radius: 18px;
+  margin-bottom: 25px;
+  font-family: GroovyFont;
+  font-size: 22px;
+  padding: 4px;
+  color: white;
+  transition: 0.3s ease;
 }
 
+.review-button:hover {
+  background-image: url(../../z11.jpg);
+}
